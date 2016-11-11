@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <title>Camia Wang</title>
+	<meta charset="UTF-8"/>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"><!--相容模式-->
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Slicebox - 3D Image Slider with Fallback" /><!--3D效果-->
+  <meta name="keywords" content="jquery, css3, 3d, webkit, fallback, slider, css3, 3d transforms, slices, rotate, box, automatic" />
+  <link rel="shortcut icon" type="image/x-icon" href="images/favicon.ico" /><!--頁面ICON-->
+  <link rel="stylesheet" href="css/trydemo.css" />
+	<link rel="stylesheet" href="css/tryslicebox.css" />
+	<link rel="stylesheet" href="css/trycustom.css" />
+	<script type="text/javascript" src="js/modernizr.custom.js"></script>
+ </head>
+ <body>
+	<div class="container">
+
+			<h1>LOGO <span>CAMIA WANG</span></h1>
+<!--////////////////////////////////////////////////////////////////////////////////////-->
+			<div class="wrapper">
+				<ul id="sb-slider" class="sb-slider">
+					<li><!--照片1-->
+						<a href="https://www.flickr.com/photos/119081966@N06/30909948905/in/dateposted-public/" target="_blank"><img src="images/1.jpg" alt="image1"/></a>
+						<div class="sb-description">
+							<h4>Keelung - Never Never Land</h4>
+						</div>
+					</li><!--1-->
+					<li><!--照片2-->
+						<a href="https://www.flickr.com/photos/119081966@N06/30609001790/in/dateposted-public/" target="_blank"><img src="images/2.jpg" alt="image2"/></a>
+						<div class="sb-description">
+							<h4>Keelung - NTOU</h4>
+						</div>
+					</li><!--2-->
+					<li><!--照片3-->
+						<a href="https://www.flickr.com/photos/119081966@N06/30909948375/in/dateposted-public/" target="_blank"><img src="images/3.jpg" alt="image1"/></a>
+						<div class="sb-description">
+							<h4>Hualien - Mukumugi</h4>
+						</div>
+					</li><!--3-->
+					<li><!--照片4-->
+						<a href="https://www.flickr.com/photos/119081966@N06/30822055761/in/dateposted-public/" target="_blank"><img src="images/4.jpg" alt="image1"/></a>
+						<div class="sb-description">
+							<h4>Taipei - Yangmingshan</h4>
+						</div>
+					</li><!--4-->
+					<li><!--照片5-->
+						<a href="https://www.flickr.com/photos/119081966@N06/30909949225/in/dateposted-public/" target="_blank"><img src="images/5.jpg" alt="image1"/></a>
+						<div class="sb-description">
+							<h4>Taipei - Home</h4>
+						</div>
+					</li><!--5-->
+				</ul>
+
+				<div id="shadow" class="shadow"></div><!--淺灰色陰影方塊-->
+				<div id="nav-arrows" class="nav-arrows"><!--照片上左右箭頭-->
+					<a href="#">Next</a>
+					<a href="#">Previous</a>
+				</div><!--照片上左右箭頭-->
+
+				<div id="nav-dots" class="nav-dots"><!--照片下點點-->
+					<span class="nav-dot-current"></span>
+					<span></span>
+					<span></span>
+					<span></span>
+					<span></span>
+				</div><!--照片下點點-->
+			</div><!-- /wrapper -->
+<!--////////////////////////////////////////////////////////////////////////////////////////-->
+		</div><!--container-->
+
+    <!--顯示-->
+		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+		<script type="text/javascript" src="js/jquery.slicebox.js"></script>
+		<script type="text/javascript">
+			$(function() {
+
+				var Page = (function() {
+
+					var $navArrows = $( '#nav-arrows' ).hide(),
+						$navDots = $( '#nav-dots' ).hide(),
+						$nav = $navDots.children( 'span' ),
+						$shadow = $( '#shadow' ).hide(),
+						slicebox = $( '#sb-slider' ).slicebox( {
+							onReady : function() {
+
+								$navArrows.show();
+								$navDots.show();
+								$shadow.show();
+
+							},
+							onBeforeChange : function( pos ) {
+
+								$nav.removeClass( 'nav-dot-current' );
+								$nav.eq( pos ).addClass( 'nav-dot-current' );
+
+							}
+						} ),
+
+						init = function() {
+
+							initEvents();
+
+						},
+						initEvents = function() {
+
+							// add navigation events
+							$navArrows.children( ':first' ).on( 'click', function() {
+
+								slicebox.next();
+								return false;
+
+							} );
+
+							$navArrows.children( ':last' ).on( 'click', function() {
+
+								slicebox.previous();
+								return false;
+
+							} );
+
+							$nav.each( function( i ) {
+
+								$( this ).on( 'click', function( event ) {
+
+									var $dot = $( this );
+
+									if( !slicebox.isActive() ) {
+
+										$nav.removeClass( 'nav-dot-current' );
+										$dot.addClass( 'nav-dot-current' );
+
+									}
+
+									slicebox.jump( i + 1 );
+									return false;
+
+								} );
+
+							} );
+
+						};
+
+						return { init : init };
+
+				})();
+
+				Page.init();
+
+			});
+		</script>
+  <footer>
+   copyright 2016 &copy; Camia Ting-Yi Wang
+  </footer>
+ </body>
+</html>
