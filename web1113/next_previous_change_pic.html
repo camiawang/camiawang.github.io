@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+body { margin: 40px }
+#controls { width: 200px; height: 25px }
+#slideshow,#controls { margin: auto }
+#prev { float: left; }
+#next { float: right; }
+</style>
+<script src="js/jquery.min.js"></script>
+<script src="js/jquery.cycle.all.js"></script>
+<script>
+$(document).ready(function() {
+
+    // init and stop the inner slideshows
+    var inners = $('.inner-slideshow').cycle().cycle('stop');
+
+    var slideshow = $('#slideshow').cycle({
+        fx: 'scrollHorz',
+        speed: 300,
+        timeout: 0,
+        prev: '#prev',
+        next: '#next',
+        before: function() {
+            // stop all inner slideshows
+            inners.cycle('stop');
+
+            // start the new slide's slideshow
+            $(this).cycle({
+                fx: 'fade',
+                timeout: 2000,
+                autostop: true,
+                end: function() {
+                    // when inner slideshow ends, advance the outer slideshow
+                    slideshow.cycle('next');
+                }
+            });
+        }
+    });
+
+});
+</script>
+</head>
+<body>
+    <div id="controls">
+        <a id="prev" href="#" style="text-decoration:none;">&lt;</a>
+        <a id="next" href="#" style="text-decoration:none;">&gt;</a>
+    </div>
+    <div id="slideshow">
+        <div class="inner-slideshow">
+          <img src="img/1_medium.jpg" style="display:block; margin:auto;" />
+          <img src="img/2_medium.jpg" style="display:block; margin:auto;" />
+          <img src="img/3_medium.jpg" style="display:block; margin:auto;" />
+          <img src="img/4_medium.jpg" style="display:block; margin:auto;" />
+          <img src="img/5_medium.jpg" style="display:block; margin:auto;" />
+        </div>
+        <div class="inner-slideshow">
+          <img src="img/2_medium.jpg" style="display:block; margin:auto;" />
+          <img src="img/3_medium.jpg" style="display:block; margin:auto;" />
+          <img src="img/4_medium.jpg" style="display:block; margin:auto;" />
+          <img src="img/5_medium.jpg" style="display:block; margin:auto;" />
+          <img src="img/1_medium.jpg" style="display:block; margin:auto;" />
+        </div>
+        <div class="inner-slideshow">
+          <img src="img/3_medium.jpg" style="display:block; margin:auto;" />
+          <img src="img/4_medium.jpg" style="display:block; margin:auto;" />
+          <img src="img/5_medium.jpg" style="display:block; margin:auto;" />
+          <img src="img/1_medium.jpg" style="display:block; margin:auto;" />
+          <img src="img/2_medium.jpg" style="display:block; margin:auto;" />
+        </div>
+        <div class="inner-slideshow">
+          <img src="img/4_medium.jpg" style="display:block; margin:auto;" />
+          <img src="img/5_medium.jpg" style="display:block; margin:auto;" />
+          <img src="img/1_medium.jpg" style="display:block; margin:auto;" />
+          <img src="img/2_medium.jpg" style="display:block; margin:auto;" />
+          <img src="img/3_medium.jpg" style="display:block; margin:auto;" />
+        </div>
+        <div class="inner-slideshow">
+          <img src="img/5_medium.jpg" style="display:block; margin:auto;" />
+          <img src="img/1_medium.jpg" style="display:block; margin:auto;" />
+          <img src="img/2_medium.jpg" style="display:block; margin:auto;" />
+          <img src="img/3_medium.jpg" style="display:block; margin:auto;" />
+          <img src="img/4_medium.jpg" style="display:block; margin:auto;" />
+        </div>
+    </div>
+</body>
+</html>

@@ -11,14 +11,17 @@ body {
 /*Header Style*/
 header div{
 	margin-bottom:20px;
-	color: #0A356D;
+	color: #0A356D;/*深藍色*/
 	font-family:"Yu Gothic UI Light";
 	font-size:40px;
 }
 
-ul{
-		padding-left:165px;
-}
+ul{padding-left:165px;}
+
+a:link{color:#0A356D;/*深藍色*/}/*未瀏覽的連結*/
+a:visited{color:#0A356D;/*深藍色*/}/*已瀏覽的連結*/
+a:active{color:#6d99ce;/*淺藍色*/}/*滑鼠按下還沒放開時*/
+
 .nav li{
 		list-style: none;
 		float:left;
