@@ -22,10 +22,12 @@
     }
     #slides .slidesjs-previous {
       margin-right: 5px;
+			text-decoration: none;
       float: left;
     }
     #slides .slidesjs-next {
       margin-right: 5px;
+			text-decoration: none;
       float: left;
     }
     .slidesjs-pagination {
@@ -101,7 +103,6 @@
 </head>
 <body>
 	<div class="container">
-
 		<header>
 		 <div class="page" style="text-align:center;">Camia Wang</div>
 		 <ul class="nav">
@@ -113,16 +114,16 @@
 			 <li><a href="shop.html"style="text-decoration:none;">Shop</a></li>
 		 </ul><!--nav-->
 		</header><!-- header -->
-    <div id="slides">
-      <img src="img/1_small.jpg" alt="https://www.flickr.com/photos/119081966@N06/30909948905/in/dateposted-public/">
-      <img src="img/2_small.jpg" alt="https://www.flickr.com/photos/119081966@N06/30609001790/in/dateposted-public/">
-      <img src="img/3_small.jpg" alt="https://www.flickr.com/photos/119081966@N06/30909948375/in/dateposted-public/">
-      <img src="img/4_small.jpg" alt="https://www.flickr.com/photos/119081966@N06/30822055761/in/dateposted-public/">
-			<img src="img/5_small.jpg" alt="https://www.flickr.com/photos/119081966@N06/30909949225/in/dateposted-public/">
-      <a href="#" class="slidesjs-previous slidesjs-navigation"><i class="icon-chevron-left icon-large"></i></a>
-      <a href="#" class="slidesjs-next slidesjs-navigation"><i class="icon-chevron-right icon-large"></i></a>
-    </div>
 	</div><!-- container -->
+	<div id="slides">
+		<img src="img/1.jpg" alt="https://www.flickr.com/photos/119081966@N06/30909948905/in/dateposted-public/" width="600px" height="400px">
+		<img src="img/2.jpg" alt="https://www.flickr.com/photos/119081966@N06/30609001790/in/dateposted-public/">
+		<img src="img/3_medium.jpg" alt="https://www.flickr.com/photos/119081966@N06/30909948375/in/dateposted-public/">
+		<img src="img/4_medium.jpg" alt="https://www.flickr.com/photos/119081966@N06/30822055761/in/dateposted-public/">
+		<img src="img/5_medium.jpg" alt="https://www.flickr.com/photos/119081966@N06/30909949225/in/dateposted-public/">
+		<a href="#" class="slidesjs-previous slidesjs-navigation"><i class="icon-chevron-left icon-large"></i></a>
+		<a href="#" class="slidesjs-next slidesjs-navigation"><i class="icon-chevron-right icon-large"></i></a>
+	</div>
 
 	<footer class="footer">
   	<p>Copyrights &copy; 2016 Camia Ting-Yi Wang</p>
@@ -133,8 +134,8 @@
 <script>
 	$(function() {
 		$('#slides').slidesjs({
-			width: 940,
-			height: 528,
+			width: 601,
+			height: 400,
 			navigation: false
 		});
 	});
