@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Camia Wang</title>
+	<meta name="viewport" content="width=device-width">
+	<link rel="shortcut icon" type="img/x-icon" href="img/favicon_1.ico" /><!--頁面ICON-->
+	<link rel="stylesheet" href="a.css"> <!--嵌入CSS樣式-->
+  <link rel="stylesheet" href="css/example.css">
+  <link rel="stylesheet" href="css/font-awesome.min.css">
+
+	<style>
+    body {
+      -webkit-font-smoothing: antialiased;
+      padding-top:70px;
+			height: 1260px;
+    }
+    #slides {
+    	width: 700px;
+			margin-left: auto;
+			margin-right: auto;
+    }
+		#slides img{
+			margin-left: 70px;
+			margin-top: 10px;
+		}
+    #slides .slidesjs-navigation {
+      margin-top:3px;
+    }
+    #slides .slidesjs-previous {
+      margin-right: 5px;
+			text-decoration: none;
+      float: left;
+    }
+    #slides .slidesjs-next {
+      margin-right: 5px;
+			text-decoration: none;
+      float: left;
+    }
+    .slidesjs-pagination {
+      margin: 6px 0 0;
+      float: right;
+      list-style: none;
+    }
+    .slidesjs-pagination li {
+      float: left;
+      margin-top: 1px;
+    }
+    .slidesjs-pagination li a {
+      display: block;
+      width: 13px;
+      height: 0;
+      padding-top: 13px;
+      background-image: url(img/pagination.png);
+      background-position: 0 0;
+      float: left;
+      overflow: hidden;
+    }
+    .slidesjs-pagination li a.active,
+    .slidesjs-pagination li a:hover.active {
+      background-position: 0 -13px
+    }
+    .slidesjs-pagination li a:hover {
+      background-position: 0 -26px
+    }
+    #slides a:link,
+    #slides a:visited {
+      color: #333
+    }
+
+  </style>
+  <style>
+    #slides {
+      display: none
+    }
+    .container {
+      margin: 0 auto
+    }
+    /* For tablets & smart phones */
+    @media (max-width: 767px) {
+      body {
+        padding-left: 20px;
+        padding-right: 20px;
+      }
+      .container {
+        width: auto
+      }
+    }
+    /* For smartphones */
+    @media (max-width: 480px) {
+      .container {
+        width: auto
+      }
+    }
+    /* For smaller displays like laptops */
+    @media (min-width: 768px) and (max-width: 979px) {
+      .container {
+        width: 724px
+      }
+    }
+    /* For larger displays */
+    @media (min-width: 1200px) {
+      .container {
+        width: 1170px
+      }
+    }
+  </style>
+  <style type="text/css">
+  *{margin:0;padding:0;}
+  #ani_links{/*OK*/
+  width:700px;height:20px;
+  position:absolute;left:200px;
+  border-bottom:0.5px solid #D5D8DF;
+	margin-top: 50px;
+  }
+  .ani_links {
+  /*width:100%;height:100%;*/
+	height:20px;
+	float: left;
+  list-style:none;
+  position:absolute;
+  color:#FFFFFF;
+  }/*字的背景框框*/
+  .ani_links>li{text-align:center;float:left;background:#808080;}/*字的BOX*/
+  .ani_links>li>a{text-decoration:none;font-size:16px;
+		display:block;color:#D5D8DF;font-family:"Yu Gothic UI Light";
+		margin: 0 auto;width:140px;}/*上面的字*/
+
+  </style>
+<script type="text/javascript" src="css/move.js"></script>
+<script type="text/javascript">
+function getbyclass(parent,classname){//透過class名稱取得元素
+var result=new Array();
+var allclass=parent.getElementsByTagName('*');
+for (var i=0; i<allclass.length;i++ )
+{
+if(classname==allclass[i].className)
+   result.push(allclass[i]);
+}
+return result;
+}
+function color(){//隨機產生顏色
+/*var r=parseInt(Math.random()*255);
+var g=parseInt(Math.random()*255);
+var b=parseInt(Math.random()*255);*/
+var newcolor="rgb("+213+","+216+","+223+")";
+return newcolor;
+}
+window.onload=function (){//頁面載入完成
+var ani_links=document.getElementById('ani_links');//取得最外層div
+var ani_links_ul=getbyclass(ani_links,'ani_links')[0];//取得ul
+var ani_links_ul_width=ani_links_ul.offsetWidth;//取得ul寬度
+var ani_links_ul_height=ani_links_ul.offsetHeight;//取得ul高度
+var ani_links_lis=ani_links_ul.getElementsByTagName('li');//取得li
+var ani_links_li_border=1;var bottom=3;var bottom_left=0;//li的邊框、下方可滑動控件的高度、可滑動控件的left值變數
+var n=ani_links_lis.length;//取得li的數量
+var ani_links_li_width=Math.floor(ani_links_ul_width/(n-1));//計算每個li所占空間的平均寬度
+for (var i=0;i<n-1;i++ )
+{
+   ani_links_lis[i].style.width=ani_links_li_width-ani_links_li_border*2+"px";//設定li元素的寬度
+   ani_links_lis[i].style.height=ani_links_ul_height-ani_links_li_border*2-bottom+"px";//設定li元素的高度
+   ani_links_lis[i].style.lineHeight=ani_links_ul_height-ani_links_li_border*2-bottom+"px";//設定li的行高
+   ani_links_lis[i].style.border=ani_links_li_border+"px solid";//設定li的邊框
+   ani_links_lis[i].onmouseover=function (){//滑鼠指向鏈接
+   bottom_left=this.offsetLeft;//取得目前元素相對於父元素的左偏移量
+   var c=color();//隨機產生一種顏色
+   move(ani_links_lis[n-1],{left:bottom_left},"flex");//改變可滑動控件位置，move函數為move.js中的函數，本行可使元素按照彈性運動方式移動
+   ani_links_lis[n-1].style.backgroundColor=c;//設定顏色
+   }
+}
+ani_links_lis[n-1].style.position="absolute";//初始化滑動元件
+ani_links_lis[n-1].style.bottom=0;
+ani_links_lis[n-1].style.left=0;
+ani_links_lis[n-1].style.width=ani_links_li_width+"px";
+ani_links_lis[n-1].style.height=bottom+"px";
+ani_links_lis[n-1].style.background="#D5D8DF";
+}
+</script>
+</head>
+<body>
+	<div class="container">
+		<header>
+		 <!--<div class="page" style="text-align:center;">Camia Wang</div>-->
+		 <div class="logo"><img src="img/LOGO.png"/></div>
+		 <ul class="nav">
+			 <li><a href="photography.html" style="text-decoration:none;">Photography</a></li>
+			 <li><a href="illustration.html"style="text-decoration:none;">Illustration</a></li>
+			 <li><a href="about.html"style="text-decoration:none;">About</a></li>
+			 <li><a href="contact.html"style="text-decoration:none;">Contact</a></li>
+			 <li><a href="blog.html"style="text-decoration:none;">Blog</a></li>
+			 <li><a href="shop.html"style="text-decoration:none;">Shop</a></li>
+		 </ul><!--nav-->
+		</header><!-- header -->
+	</div><!-- container -->
+	<div id="slides">
+		<img src="img/1_medium.jpg" style="width:400px">
+		<img src="img/2_medium.jpg">
+		<img src="img/3_medium.jpg">
+		<img src="img/4_medium.jpg">
+		<img src="img/5_medium.jpg">
+		<a href="#" class="slidesjs-previous slidesjs-navigation"><i class="icon-chevron-left icon-large"></i></a>
+		<a href="#" class="slidesjs-next slidesjs-navigation"><i class="icon-chevron-right icon-large"></i></a>
+	</div>
+<div class="line1"><hr/></div>
+<div id="ani_links">
+  <ul class="ani_links">
+  <li><a href="">About</a></li>
+  <li><a href="">hey</a></li>
+  <li><a href="">you</a></li>
+  <li><a href="">camia</a></li>
+  <li><a href="">wang</a></li>
+  <li></li>
+  </ul>
+  </div>
+
+	<footer class="footer">
+  	<p>Copyrights &copy; 2016 Camia Ting-Yi Wang</p>
+	</footer>
+	<script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+<script src="js/jquery.slides.min.js"></script>
+
+<script>
+	$(function() {
+		$('#slides').slidesjs({
+			width: 601,
+			height: 400,
+			navigation: false
+		});
+	});
+</script>
+</body>
+
+</html>
