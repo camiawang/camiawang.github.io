@@ -13,10 +13,17 @@
     body {
       -webkit-font-smoothing: antialiased;
       padding-top:70px;
+			height: 1260px;
     }
     #slides {
-      display: none
+    	width: 700px;
+			margin-left: auto;
+			margin-right: auto;
     }
+		#slides img{
+			margin-left: 70px;
+			margin-top: 10px;
+		}
     #slides .slidesjs-navigation {
       margin-top:3px;
     }
@@ -35,10 +42,10 @@
       float: right;
       list-style: none;
     }
-    /*.slidesjs-pagination li {
+    .slidesjs-pagination li {
       float: left;
-      margin: 0 1px;
-    }*/
+      margin-top: 1px;
+    }
     .slidesjs-pagination li a {
       display: block;
       width: 13px;
@@ -60,9 +67,7 @@
     #slides a:visited {
       color: #333
     }
-    .navbar {
-      overflow: hidden
-    }
+
   </style>
   <style>
     #slides {
@@ -104,7 +109,8 @@
 <body>
 	<div class="container">
 		<header>
-		 <div class="page" style="text-align:center;">Camia Wang</div>
+		 <!--<div class="page" style="text-align:center;">Camia Wang</div>-->
+		 <div class="logo"><img src="img/LOGO.png"/></div>
 		 <ul class="nav">
 			 <li><a href="photography.html" style="text-decoration:none;">Photography</a></li>
 			 <li><a href="illustration.html"style="text-decoration:none;">Illustration</a></li>
@@ -116,14 +122,30 @@
 		</header><!-- header -->
 	</div><!-- container -->
 	<div id="slides">
-		<img src="img/1.jpg" alt="https://www.flickr.com/photos/119081966@N06/30909948905/in/dateposted-public/" width="600px" height="400px">
-		<img src="img/2.jpg" alt="https://www.flickr.com/photos/119081966@N06/30609001790/in/dateposted-public/">
-		<img src="img/3_medium.jpg" alt="https://www.flickr.com/photos/119081966@N06/30909948375/in/dateposted-public/">
-		<img src="img/4_medium.jpg" alt="https://www.flickr.com/photos/119081966@N06/30822055761/in/dateposted-public/">
-		<img src="img/5_medium.jpg" alt="https://www.flickr.com/photos/119081966@N06/30909949225/in/dateposted-public/">
+		<img src="img/1_medium.jpg" style="width:400px">
+		<img src="img/2_medium.jpg">
+		<img src="img/3_medium.jpg">
+		<img src="img/4_medium.jpg">
+		<img src="img/5_medium.jpg">
 		<a href="#" class="slidesjs-previous slidesjs-navigation"><i class="icon-chevron-left icon-large"></i></a>
 		<a href="#" class="slidesjs-next slidesjs-navigation"><i class="icon-chevron-right icon-large"></i></a>
 	</div>
+<div class="line1"><hr/></div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 	<footer class="footer">
   	<p>Copyrights &copy; 2016 Camia Ting-Yi Wang</p>
