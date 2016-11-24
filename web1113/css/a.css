@@ -1,0 +1,54 @@
+.container {
+	width: 940px;
+	margin-right: auto;
+	margin-left:auto;
+	}
+
+/*Header Style*/
+header div{
+	margin-bottom:20px;
+	color: #0A356D;/*深藍色*/
+	font-family:"Yu Gothic UI Light";
+	font-size:40px;
+}
+
+ul{padding-left:165px;}
+
+.nav li{
+		list-style: none;
+		float:left;
+  	font-family:"Yu Gothic UI Light";
+    font-size: 16px;
+    padding-top:12px;
+    padding-right:60px;
+    padding-bottom: 14px;
+    color:#0A356D;
+}
+
+.logo{
+	margin-left: 320px;
+}
+
+/*.line1 hr{
+	width: 700px;
+	height: 0;
+	border: 1px solid #D5D8DF;
+	margin-top: 100px;
+}
+*/
+.footer{
+	/*margin-top:0px;*/
+  background-color: #D5D8DF;
+  height:40px;
+	width:940px;
+	margin-left:auto;
+	margin-right:auto;
+	width: auto;
+}
+.footer p{
+	margin-left:460px;
+	padding-top: 10px;
+	font-family:Arial;
+	font-size:10px;
+	color:#ffffff;
+}
