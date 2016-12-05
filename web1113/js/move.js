@@ -36,7 +36,7 @@
 			default:
 				obj.style[attr]=value;
 		}
-	
+
 	return function (attr_in, value_in){css(obj, attr_in, value_in)};
 }
 
@@ -71,7 +71,7 @@ function move(obj, oTarget, iType, fnCallBack, fnDuring)
 			fnMove=do_flex_move;
 			break;
 	}
-	
+
 	obj.timer=setInterval(function (){
 		fnMove(obj, oTarget, fnCallBack, fnDuring);
 	}, 30);
@@ -83,28 +83,28 @@ function do_buffer_move(obj, oTarget, fnCallBack, fnDuring)
 	var attr='';
 	var speed=0;
 	var cur=0;
-	
+
 	for(attr in oTarget)
 	{
 		cur=css(obj, attr);
 		if(oTarget[attr]!=cur)
 		{
 			bStop=false;
-			
+
 			speed=(oTarget[attr]-cur)/5;
 			speed=speed>0?Math.ceil(speed):Math.floor(speed);
-			
+
 			css(obj, attr, cur+speed);
 		}
 	}
-	
+
 	if(fnDuring)fnDuring.call(obj);
-	
+
 	if(bStop)
 	{
 		clearInterval(obj.timer);
 		obj.timer=null;
-		
+
 		if(fnCallBack)fnCallBack.call(obj);
 	}
 }
@@ -115,7 +115,7 @@ function do_flex_move(obj, oTarget, fnCallBack, fnDuring)
 	var attr='';
 	var speed=0;
 	var cur=0;
-	
+
 	for(attr in oTarget)
 	{
 		if(!obj.oSpeed)obj.oSpeed={};
@@ -124,21 +124,21 @@ function do_flex_move(obj, oTarget, fnCallBack, fnDuring)
 		if(Math.abs(oTarget[attr]-cur)>=1 || Math.abs(obj.oSpeed[attr])>=1)
 		{
 			bStop=false;
-			
+
 			obj.oSpeed[attr]+=(oTarget[attr]-cur)/5;
 			obj.oSpeed[attr]*=0.7;
-			
+
 			css(obj, attr, cur+obj.oSpeed[attr]);
 		}
 	}
-	
+
 	if(fnDuring)fnDuring.call(obj);
-	
+
 	if(bStop)
 	{
 		clearInterval(obj.timer);
 		obj.timer=null;
-		
+
 		if(fnCallBack)fnCallBack.call(obj);
 	}
 }

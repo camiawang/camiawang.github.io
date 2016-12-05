@@ -4,38 +4,65 @@
 	margin-left:auto;
 	}
 
-/*Header Style*/
-header div{
-	margin-bottom:20px;
-	color: #0A356D;/*深藍色*/
-	font-family:"Yu Gothic UI Light";
-	font-size:40px;
-}
-
 ul{padding-left:165px;}
 
 .nav li{
+	width:auto;
 		list-style: none;
 		float:left;
   	font-family:"Yu Gothic UI Light";
     font-size: 16px;
     padding-top:12px;
     padding-right:60px;
+		margin-left: auto;
+		margin-right: auto;
     padding-bottom: 14px;
     color:#0A356D;
 }
 
-.logo{
-	margin-left: 320px;
+.logo{max-width:287px;  text-align: center;}
+.logo img{
+	margin-left: auto;
+	margin-right: auto;
 }
 
-/*.line1 hr{
-	width: 700px;
-	height: 0;
-	border: 1px solid #D5D8DF;
-	margin-top: 100px;
+/* For smartphones 有漢堡*/
+@media screen and (max-width: 480px){
+	.body{width: auto;}
+	.nav{display: none;}
+	.logo img{width: 50%;}
+
 }
-*/
+/* For tablets & smart phones 有漢堡*/
+@media screen and (max-width:767px){
+	.body{width: auto;}
+	.nav{display: none;}
+	.nav li{font-size:90%;}
+	.logo img{width: 60%;}
+}
+/* For smaller displays like laptops */
+@media screen and (min-width: 768px) and (max-width: 979px) {
+	.body{width: 724px;}
+	.logo img{width: 70%;}
+	.nav li{font-size:100%;}
+	.material-design-hamburger{display: none;}
+	.menu--off{display: none;}
+	.menu--off div{display: none;}
+	.material-design-hamburger__layer{display: none;}
+
+}
+/* For larger displays */
+@media screen and (min-width: 980px) {
+	.body{width: 1170px;}
+	.logo{width: 100%;}
+	.nav li{font-size:120%;}
+	.material-design-hamburger{display: none;}
+	.menu--off{display: none;}
+	.menu--off div{display: none;}
+	.menu--on{display: none;}
+	.material-design-hamburger__layer{display: none;}
+}
+
 .footer{
 	/*margin-top:0px;*/
   background-color: #D5D8DF;
