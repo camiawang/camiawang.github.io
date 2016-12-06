@@ -1,26 +1,27 @@
-.container {
+.container1 {
 	width: 940px;
 	margin-right: auto;
 	margin-left:auto;
 	}
+.body{background-color: #fff;}
 
 ul{padding-left:165px;}
-
+.nav{width:940px;text-align: center;}
 .nav li{
-	width:auto;
+	  width:auto;
 		list-style: none;
 		float:left;
   	font-family:"Yu Gothic UI Light";
     font-size: 16px;
     padding-top:12px;
-    padding-right:60px;
+    padding-right:50px;/*navbar各間距*/
 		margin-left: auto;
 		margin-right: auto;
     padding-bottom: 14px;
     color:#0A356D;
 }
 
-.logo{max-width:287px;  text-align: center;}
+.logo{width:287px;  text-align: center;}
 .logo img{
 	margin-left: auto;
 	margin-right: auto;
@@ -30,7 +31,7 @@ ul{padding-left:165px;}
 @media screen and (max-width: 480px){
 	.body{width: auto;}
 	.nav{display: none;}
-	.logo img{width: 50%;}
+	.logo{width: 60%;text-align: center;}
 
 }
 /* For tablets & smart phones 有漢堡*/
@@ -38,12 +39,12 @@ ul{padding-left:165px;}
 	.body{width: auto;}
 	.nav{display: none;}
 	.nav li{font-size:90%;}
-	.logo img{width: 60%;}
+	.logo{width: 70%;text-align: center;}
 }
 /* For smaller displays like laptops */
 @media screen and (min-width: 768px) and (max-width: 979px) {
 	.body{width: 724px;}
-	.logo img{width: 70%;}
+	.logo{width: 80%;text-align: center;}
 	.nav li{font-size:100%;}
 	.material-design-hamburger{display: none;}
 	.menu--off{display: none;}
@@ -54,7 +55,7 @@ ul{padding-left:165px;}
 /* For larger displays */
 @media screen and (min-width: 980px) {
 	.body{width: 1170px;}
-	.logo{width: 100%;}
+	.logo{width: 100%;text-align: center;}
 	.nav li{font-size:120%;}
 	.material-design-hamburger{display: none;}
 	.menu--off{display: none;}
